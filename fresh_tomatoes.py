@@ -165,3 +165,33 @@ def open_movies_page(movies):
     # open the output file in the browser (in a new tab, if possible)
     url = os.path.abspath(output_file.name)
     webbrowser.open('file://' + url, new=2)
+
+
+class Movie():
+    title = ""
+    poster_image_url = ""
+    trailer_youtube_url = ""
+
+    def __init__(self, title, poster_image_url, trailer_youtube_url):
+        self.title = title
+        self.poster_image_url = poster_image_url
+        self.trailer_youtube_url = trailer_youtube_url
+
+    def __str__(self):
+        return "{ title:%s, poster:%s, trailer:%s }" % (self.title, self.poster_image_url, self.trailer_youtube_url)
+
+
+# Main Routine
+# Executed when this file is directly executed
+if __name__ == "__main__":
+    movies = []
+    movies.append(Movie("Castle in the Sky","https://image.tmdb.org/t/p/original/4RTG2AaqZ9eleL51ryWwv78WwDu.jpg","https://www.youtube.com/watch?v=7QSFyr1vxi4"))
+    movies.append(Movie("Spirited Away","https://image.tmdb.org/t/p/original/ydIpyTzCc5iYAqjlbcCmgSckebE.jpg","https://www.youtube.com/watch?v=_jGXcSBcvQQ"))
+    movies.append(Movie("Lupin the Third: The Castle of Cagliostro","https://image.tmdb.org/t/p/original/a1X15I2l0gG1N4vrtMdJUbGMzS4.jpg","https://www.youtube.com/watch?v=jHzyjBfEyj8"))
+    movies.append(Movie("Patch Adams","https://image.tmdb.org/t/p/original/4WGt11imPsCcXPQegORt0E4UoZk.jpg","https://www.youtube.com/watch?v=lZqGA1ldvYE"))
+    movies.append(Movie("Contact","https://image.tmdb.org/t/p/original/tKMaZQvaLzbk2Zh6rZcohnPvzCm.jpg","https://www.youtube.com/watch?v=SRoj3jK37Vc"))
+    movies.append(Movie("Schindler's List","https://image.tmdb.org/t/p/original/yPisjyLweCl1tbgwgtzBCNCBle.jpg","https://www.youtube.com/watch?v=bJcLRFWxRno"))
+
+    print([str(movie) for movie in movies])
+
+    open_movies_page(movies)
